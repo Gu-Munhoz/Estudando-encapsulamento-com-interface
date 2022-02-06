@@ -48,8 +48,9 @@ public class Controle implements Controlador{
 
     @Override
     public void abrirMenu() {
-        System.out.println("Está ligado?" + this.getLigado());
-        System.out.println("Está tocando?" + this.getVolume());
+        System.out.println("Está ligado? " + this.getLigado());
+        System.out.println("Está tocando? " + this.getTocando());
+        System.out.println("Volume: " + this.getVolume());
 
         for(int i = 0; i <= this.getVolume(); i+=10){
             System.out.print("|");
@@ -64,7 +65,7 @@ public class Controle implements Controlador{
     @Override
     public void maisVolume() {
         if(this.getLigado()){
-            this.setVolume(this.getVolume() + 1);
+            this.setVolume(this.getVolume() + 5);
         }else{
             System.out.println("Está desligado!!");
         }
@@ -73,7 +74,7 @@ public class Controle implements Controlador{
     @Override
     public void menosVolume() {
         if(this.getLigado()){
-            this.setVolume(this.getVolume() - 1);
+            this.setVolume(this.getVolume() - 5);
         }else{
             System.out.println("Está desligado!!");
         }
@@ -95,7 +96,7 @@ public class Controle implements Controlador{
 
     @Override
     public void play() {
-        if(this.getLigado() && this.getTocando()){
+        if(this.getLigado() && !this.getTocando()){
             this.setTocando(true);
         }
     }
